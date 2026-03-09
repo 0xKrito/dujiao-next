@@ -32,22 +32,52 @@ const (
 	StatusSuccess = 2 // 支付成功
 	StatusExpired = 3 // 支付超时
 
-	epusdtTradeTypeUSDTTRC20 = "usdt.trc20"
-	epusdtTradeTypeUSDTERC20 = "usdt.erc20"
-	epusdtTradeTypeUSDTBEP20 = "usdt.bep20"
-	epusdtTradeTypeUSDTPOLY  = "usdt.polygon"
-	epusdtTradeTypeUSDCTRC20 = "usdc.trc20"
-	epusdtTradeTypeUSDCERC20 = "usdc.erc20"
-	epusdtTradeTypeUSDCPOLY  = "usdc.polygon"
-	epusdtTradeTypeUSDCBEP20 = "usdc.bep20"
-	epusdtTradeTypeTRX       = "tron.trx"
-	epusdtTradeTypeETH       = "eth.eth"
-	epusdtTradeTypeBNB       = "bsc.bnb"
+	epusdtTradeTypeUSDTTRC20  = "usdt.trc20"
+	epusdtTradeTypeUSDTERC20  = "usdt.erc20"
+	epusdtTradeTypeUSDTBEP20  = "usdt.bep20"
+	epusdtTradeTypeUSDTPOLY   = "usdt.polygon"
+	epusdtTradeTypeUSDTAPTOS  = "usdt.aptos"
+	epusdtTradeTypeUSDTSOL    = "usdt.solana"
+	epusdtTradeTypeUSDTXLAYER = "usdt.xlayer"
+	epusdtTradeTypeUSDTARB    = "usdt.arbitrum"
+	epusdtTradeTypeUSDTPLASMA = "usdt.plasma"
 
-	epusdtChannelTypeUSDT      = "usdt"
-	epusdtChannelTypeUSDTTRC20 = "usdt-trc20"
-	epusdtChannelTypeUSDCTRC20 = "usdc-trc20"
-	epusdtChannelTypeTRX       = "trx"
+	epusdtTradeTypeUSDCTRC20  = "usdc.trc20"
+	epusdtTradeTypeUSDCERC20  = "usdc.erc20"
+	epusdtTradeTypeUSDCBEP20  = "usdc.bep20"
+	epusdtTradeTypeUSDCPOLY   = "usdc.polygon"
+	epusdtTradeTypeUSDCAPTOS  = "usdc.aptos"
+	epusdtTradeTypeUSDCSOL    = "usdc.solana"
+	epusdtTradeTypeUSDCXLAYER = "usdc.xlayer"
+	epusdtTradeTypeUSDCARB    = "usdc.arbitrum"
+	epusdtTradeTypeUSDCBASE   = "usdc.base"
+
+	epusdtTradeTypeTRX = "tron.trx"
+	epusdtTradeTypeETH = "eth.eth"
+	epusdtTradeTypeBNB = "bsc.bnb"
+
+	epusdtChannelTypeUSDT         = "usdt"
+	epusdtChannelTypeUSDTTRC20    = "usdt-trc20"
+	epusdtChannelTypeUSDTERC20    = "usdt-erc20"
+	epusdtChannelTypeUSDTBEP20    = "usdt-bep20"
+	epusdtChannelTypeUSDTPolygon  = "usdt-polygon"
+	epusdtChannelTypeUSDTAptos    = "usdt-aptos"
+	epusdtChannelTypeUSDTSolana   = "usdt-solana"
+	epusdtChannelTypeUSDTXLayer   = "usdt-xlayer"
+	epusdtChannelTypeUSDTArbitrum = "usdt-arbitrum"
+	epusdtChannelTypeUSDTPlasma   = "usdt-plasma"
+	epusdtChannelTypeUSDCTRC20    = "usdc-trc20"
+	epusdtChannelTypeUSDCERC20    = "usdc-erc20"
+	epusdtChannelTypeUSDCBEP20    = "usdc-bep20"
+	epusdtChannelTypeUSDCPolygon  = "usdc-polygon"
+	epusdtChannelTypeUSDCAptos    = "usdc-aptos"
+	epusdtChannelTypeUSDCSolana   = "usdc-solana"
+	epusdtChannelTypeUSDCXLayer   = "usdc-xlayer"
+	epusdtChannelTypeUSDCArbitrum = "usdc-arbitrum"
+	epusdtChannelTypeUSDCBase     = "usdc-base"
+	epusdtChannelTypeTRX          = "trx"
+	epusdtChannelTypeETH          = "eth"
+	epusdtChannelTypeBNB          = "bnb"
 
 	epusdtCreateTransactionPath = "/api/v1/order/create-transaction"
 	epusdtStatusSuccessMsg      = "status is not success"
@@ -370,10 +400,46 @@ func ResolveTradeType(channelType string) string {
 	switch strings.ToLower(strings.TrimSpace(channelType)) {
 	case epusdtChannelTypeUSDT, epusdtChannelTypeUSDTTRC20:
 		return epusdtTradeTypeUSDTTRC20
+	case epusdtChannelTypeUSDTERC20:
+		return epusdtTradeTypeUSDTERC20
+	case epusdtChannelTypeUSDTBEP20:
+		return epusdtTradeTypeUSDTBEP20
+	case epusdtChannelTypeUSDTPolygon:
+		return epusdtTradeTypeUSDTPOLY
+	case epusdtChannelTypeUSDTAptos:
+		return epusdtTradeTypeUSDTAPTOS
+	case epusdtChannelTypeUSDTSolana:
+		return epusdtTradeTypeUSDTSOL
+	case epusdtChannelTypeUSDTXLayer:
+		return epusdtTradeTypeUSDTXLAYER
+	case epusdtChannelTypeUSDTArbitrum:
+		return epusdtTradeTypeUSDTARB
+	case epusdtChannelTypeUSDTPlasma:
+		return epusdtTradeTypeUSDTPLASMA
 	case epusdtChannelTypeUSDCTRC20:
 		return epusdtTradeTypeUSDCTRC20
+	case epusdtChannelTypeUSDCERC20:
+		return epusdtTradeTypeUSDCERC20
+	case epusdtChannelTypeUSDCBEP20:
+		return epusdtTradeTypeUSDCBEP20
+	case epusdtChannelTypeUSDCPolygon:
+		return epusdtTradeTypeUSDCPOLY
+	case epusdtChannelTypeUSDCAptos:
+		return epusdtTradeTypeUSDCAPTOS
+	case epusdtChannelTypeUSDCSolana:
+		return epusdtTradeTypeUSDCSOL
+	case epusdtChannelTypeUSDCXLayer:
+		return epusdtTradeTypeUSDCXLAYER
+	case epusdtChannelTypeUSDCArbitrum:
+		return epusdtTradeTypeUSDCARB
+	case epusdtChannelTypeUSDCBase:
+		return epusdtTradeTypeUSDCBASE
 	case epusdtChannelTypeTRX:
 		return epusdtTradeTypeTRX
+	case epusdtChannelTypeETH:
+		return epusdtTradeTypeETH
+	case epusdtChannelTypeBNB:
+		return epusdtTradeTypeBNB
 	default:
 		return ""
 	}

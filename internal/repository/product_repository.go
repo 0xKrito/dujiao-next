@@ -223,7 +223,7 @@ func (r *GormProductRepository) Delete(id string) error {
 // CountBySlug 统计 slug 数量
 func (r *GormProductRepository) CountBySlug(slug string, excludeID *string) (int64, error) {
 	var count int64
-	query := r.db.Model(&models.Product{}).Where("slug = ?", slug)
+	query := r.db.Unscoped().Model(&models.Product{}).Where("slug = ?", slug)
 	if excludeID != nil {
 		query = query.Where("id != ?", *excludeID)
 	}

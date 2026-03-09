@@ -9,5 +9,8 @@ uploads
 .DS_Store
 */node_modules/
 */dist/
+# 编译产物
+cmd/server/dujiao-next
+cmd/server/main-linux
 # Added by goreleaser init:
 dist/

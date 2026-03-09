@@ -66,6 +66,7 @@ func SetupRouter(cfg *config.Config, c *provider.Container) *gin.Engine {
 	r.Use(CORSMiddleware(cfg.CORS))
 
 	// 静态文件服务（上传的图片）- 必须放在最前面
+	// 兼容存在数据库里的旧路径，通过 Nginx 单独代理 /uploads 时使用
 	r.Static("/uploads", "./uploads")
 
 	// API 路由组
